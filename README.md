@@ -1,5 +1,7 @@
 # JobAssist
 
+Live: https://job-assist-bice.vercel.app/
+
 JobAssist is a placement preparation website built for Indian students who want one focused place to prepare for campus placements, off-campus drives, hackathons, interviews, and resume screening.
 
 ## What JobAssist Offers
