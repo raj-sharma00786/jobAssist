@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
-import { Prisma } from "@/app/generated/prisma/client";
+import { Prisma } from "@prisma/client";
 import { analyzeResume } from "@/lib/resumeAnalyzer";
 import { extractPdfText } from "@/lib/resumePdf";
 
