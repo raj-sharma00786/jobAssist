@@ -1,22 +1,22 @@
-import { PrismaClient } from "../app/generated/prisma/client";
-import { PrismaMariaDb } from "@prisma/adapter-mariadb";
+import { PrismaClient } from "@prisma/client";
+// import { PrismaMariaDb } from "@prisma/adapter-mariadb";
 import "dotenv/config";
 import * as fs from "fs";
 import * as path from "path";
 
-const url = process.env.DATABASE_URL!;
-const parsed = new URL(url.replace("mysql://", "http://"));
+// const url = process.env.DATABASE_URL!;
+// const parsed = new URL(url.replace("mysql://", "http://"));
 
-const adapter = new PrismaMariaDb({
-  host: parsed.hostname,
-  port: parseInt(parsed.port || "3306"),
-  user: parsed.username,
-  password: parsed.password,
-  database: parsed.pathname.slice(1),
-  ssl: true
-});
+// const adapter = new PrismaMariaDb({
+//   host: parsed.hostname,
+//   port: parseInt(parsed.port || "3306"),
+//   user: parsed.username,
+//   password: parsed.password,
+//   database: parsed.pathname.slice(1),
+//   ssl: true
+// });
 
-const prisma = new PrismaClient({ adapter });
+const prisma = new PrismaClient();
 
 async function main() {
   console.log("🌱 Seeding problems from problems.json...");
