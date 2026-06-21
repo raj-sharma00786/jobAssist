@@ -1,22 +1,15 @@
 import { PrismaClient } from "@prisma/client";
-// import { PrismaMariaDb } from "@prisma/adapter-mariadb";
+import { PrismaTiDBCloud } from "@tidbcloud/prisma-adapter";
 import "dotenv/config";
 import * as fs from "fs";
 import * as path from "path";
 
-// const url = process.env.DATABASE_URL!;
-// const parsed = new URL(url.replace("mysql://", "http://"));
+// Initialize the TiDB adapter for the seed script
+const connectionString = process.env.DATABASE_URL!;
+const adapter = new PrismaTiDBCloud({ url: connectionString });
 
-// const adapter = new PrismaMariaDb({
-//   host: parsed.hostname,
-//   port: parseInt(parsed.port || "3306"),
-//   user: parsed.username,
-//   password: parsed.password,
-//   database: parsed.pathname.slice(1),
-//   ssl: true
-// });
-
-const prisma = new PrismaClient();
+// Pass the adapter here as well
+const prisma = new PrismaClient({ adapter });
 
 async function main() {
   console.log("🌱 Seeding problems from problems.json...");
@@ -39,9 +32,9 @@ async function main() {
   // Insert all problems at once
   await prisma.problem.createMany({ data: problems });
 
-  console.log(`✅ Seeded ${problems.length} problems successfully!`);
+  console.log(`Seeded ${problems.length} problems successfully!`);
 
-  console.log("🌱 Seeding interview experiences from experiences.json...");
+  console.log(" Seeding interview experiences from experiences.json...");
 
   const experiencesFilePath = path.join(__dirname, "..", "experiences.json");
   const experiencesRaw = fs.readFileSync(experiencesFilePath, "utf-8");
@@ -58,10 +51,10 @@ async function main() {
   await prisma.interviewExperience.createMany({ data: parsedExperiences });
 
   console.log(
-    `✅ Seeded ${parsedExperiences.length} interview experiences successfully!`
+    `Seeded ${parsedExperiences.length} interview experiences successfully!`
   );
 
-  console.log("🌱 Seeding hackathons from hackathons.json...");
+  console.log("Seeding hackathons from hackathons.json...");
 
   const hackathonsFilePath = path.join(__dirname, "..", "hackathons.json");
   const hackathonsRaw = fs.readFileSync(hackathonsFilePath, "utf-8");
@@ -77,7 +70,7 @@ async function main() {
   await prisma.hackathon.deleteMany({});
   await prisma.hackathon.createMany({ data: parsedHackathons });
 
-  console.log(`✅ Seeded ${parsedHackathons.length} hackathons successfully!`);
+  console.log(`Seeded ${parsedHackathons.length} hackathons successfully!`);
 
   // Print company breakdown
   const companies = new Map<string, number>();
@@ -91,7 +84,7 @@ async function main() {
 
 main()
   .catch((e) => {
-    console.error("❌ Seed failed:", e);
+    console.error(" Seed failed:", e);
     process.exit(1);
   })
   .finally(async () => {

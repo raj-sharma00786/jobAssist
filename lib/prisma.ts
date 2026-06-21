@@ -1,30 +1,22 @@
 import { PrismaClient } from "@prisma/client";
-// import { PrismaMariaDb } from "@prisma/adapter-mariadb";
+import { PrismaTiDBCloud } from "@tidbcloud/prisma-adapter";
 
 const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined;
 };
 
-// function createPrismaClient() {
-//   const url = process.env.DATABASE_URL!;
-//   const parsed = new URL(url.replace("mysql://", "http://"));
+function createPrismaClient() {
+  
+  const connectionString = process.env.DATABASE_URL!;
+  
+  // Initialize the TiDB Serverless HTTP adapter
+  const adapter = new PrismaTiDBCloud({ url: connectionString });
 
-//   const adapterConfig: ConstructorParameters<typeof PrismaMariaDb>[0] = {
-//     host: parsed.hostname,
-//     port: parseInt(parsed.port || "3306"),
-//     user: parsed.username,
-//     password: parsed.password,
-//     database: parsed.pathname.slice(1),
-//     allowPublicKeyRetrieval: tr5ue,
-//     ssl: true,
-//   };
+  // Pass the adapter to PrismaClient
+  return new PrismaClient({ adapter });
+}
 
-//   const adapter = new PrismaMariaDb(adapterConfig);
-
-//   return new PrismaClient({ adapter });
-// }
-
-export const prisma = globalForPrisma.prisma ?? new PrismaClient();
+export const prisma = globalForPrisma.prisma ?? createPrismaClient();
 
 if (process.env.NODE_ENV !== "production") {
   globalForPrisma.prisma = prisma;
