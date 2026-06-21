@@ -14,8 +14,9 @@ function createPrismaClient() {
     port: parseInt(parsed.port || "3306"),
     user: parsed.username,
     password: parsed.password,
-    database: parsed.pathname.slice(1), // remove leading "/"
+    database: parsed.pathname.slice(1),
     allowPublicKeyRetrieval: true,
+    ssl: true,
   };
 
   const adapter = new PrismaMariaDb(adapterConfig);
