@@ -1,0 +1,155 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+// ─────────────────────────────────────────────
+// NextAuth Models
+// ─────────────────────────────────────────────
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+
+  // Profile fields (filled during onboarding for Google sign-ups)
+  university            String?
+  position              String?
+  age                   Int?
+  organization          String?
+  profileComplete       Boolean @default(false)
+  onboardingCompleted   Boolean @default(false)
+
+  accounts             Account[]
+  sessions             Session[]
+  submissions          Submission[]
+  resumeScan           ResumeScan?
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+// ─────────────────────────────────────────────
+// Custom Platform Models
+// ─────────────────────────────────────────────
+
+model Problem {
+  id         String   @id @default(cuid())
+  title      String
+  difficulty String   // 'Easy', 'Medium', 'Hard'
+  category   String   // e.g. 'Arrays', 'Graphs', 'DP'
+  company    String   @default("General")
+  url        String?  // LeetCode / Codeforces link
+  content    String   @db.Text
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  submissions Submission[]
+}
+
+model Submission {
+  id        String   @id @default(cuid())
+  status    String   @default("UNSEEN") // 'UNSEEN', 'UNSOLVED', 'NEEDS_REVISION', 'MASTERED'
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  userId    String
+  problemId String
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  problem Problem @relation(fields: [problemId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, problemId])
+  @@index([userId])
+  @@index([problemId])
+}
+
+model InterviewExperience {
+  id        String   @id @default(cuid())
+  company   String
+  role      String
+  date      String
+  topics    String
+  summary   String   @db.Text
+  fullUrl   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Hackathon {
+  id              String   @id @default(cuid())
+  title           String
+  organizer       String
+  date            String
+  deadline        String
+  tags            String
+  registrationUrl String
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model ResumeScan {
+  id            String   @id @default(cuid())
+  fileName      String
+  fileMimeType  String
+  fileSize      Int
+  fileData      Bytes    @db.LongBlob
+  extractedText String   @db.LongText
+  targetRole    String   @default("Software Engineer Intern")
+  score         Int
+  verdict       String
+  matchedKeywords Json
+  missingKeywords Json
+  sectionScores Json
+  suggestions   Json
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  userId String @unique
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}

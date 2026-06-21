@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Goldman Sachs India Hackathon 2026",
+    "organizer": "Goldman Sachs / HackerRank",
+    "date": "May 2026",
+    "deadline": "Closes in 5 Days",
+    "tags": "12-Hour, Technical, FinTech",
+    "registrationUrl": "https://www.hackerrank.com/"
+  },
+  {
+    "title": "International Quant Championship 2026",
+    "organizer": "WorldQuant & Unstop",
+    "date": "April 2026",
+    "deadline": "Registration Open",
+    "tags": "Quantitative Finance, Global, Algorithms",
+    "registrationUrl": "https://worldquantbrain.com/iqc"
+  },
+  {
+    "title": "HackByte 4.0",
+    "organizer": "Devfolio",
+    "date": "March 2026",
+    "deadline": "Rolling Admissions",
+    "tags": "Web3, Open Source, 48-Hour",
+    "registrationUrl": "https://hackbyte.devfolio.co/"
+  }
+]

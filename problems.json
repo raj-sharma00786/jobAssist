@@ -1,0 +1,882 @@
+[
+  {
+    "title": "Two Sum",
+    "difficulty": "Easy",
+    "category": "Arrays",
+    "company": "Amazon",
+    "url": "https://leetcode.com/problems/two-sum/",
+    "content": "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target."
+  },
+  {
+    "title": "LRU Cache",
+    "difficulty": "Medium",
+    "category": "Design",
+    "company": "Amazon",
+    "url": "https://leetcode.com/problems/lru-cache/",
+    "content": "Design a data structure that follows the constraints of a Least Recently Used (LRU) cache."
+  },
+  {
+    "title": "Number of Islands",
+    "difficulty": "Medium",
+    "category": "Graphs",
+    "company": "Amazon",
+    "url": "https://leetcode.com/problems/number-of-islands/",
+    "content": "Given an m x n 2D binary grid grid which represents a map of '1's (land) and '0's (water), return the number of islands."
+  },
+  {
+    "title": "Merge Intervals",
+    "difficulty": "Medium",
+    "category": "Arrays",
+    "company": "Amazon",
+    "url": "https://leetcode.com/problems/merge-intervals/",
+    "content": "Merge all overlapping intervals, and return an array of the non-overlapping intervals."
+  },
+  {
+    "title": "Trapping Rain Water",
+    "difficulty": "Hard",
+    "category": "Two Pointers",
+    "company": "Amazon",
+    "url": "https://leetcode.com/problems/trapping-rain-water/",
+    "content": "Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it can trap after raining."
+  },
+  {
+    "title": "Best Time to Buy and Sell Stock",
+    "difficulty": "Easy",
+    "category": "DP",
+    "company": "Amazon",
+    "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
+    "content": "Return the maximum profit you can achieve from a single stock transaction."
+  },
+  {
+    "title": "Word Ladder II",
+    "difficulty": "Hard",
+    "category": "Graphs",
+    "company": "Amazon",
+    "url": "https://leetcode.com/problems/word-ladder-ii/",
+    "content": "Find all shortest transformation sequences from beginWord to endWord."
+  },
+  {
+    "title": "Maximum Subarray",
+    "difficulty": "Medium",
+    "category": "DP",
+    "company": "Amazon",
+    "url": "https://leetcode.com/problems/maximum-subarray/",
+    "content": "Find the contiguous subarray which has the largest sum and return its sum."
+  },
+  {
+    "title": "K Closest Points to Origin",
+    "difficulty": "Medium",
+    "category": "Heaps",
+    "company": "Amazon",
+    "url": "https://leetcode.com/problems/k-closest-points-to-origin/",
+    "content": "Return the k closest points to the origin (0, 0) on a 2D plane."
+  },
+  {
+    "title": "Median of Two Sorted Arrays",
+    "difficulty": "Hard",
+    "category": "Binary Search",
+    "company": "Amazon",
+    "url": "https://leetcode.com/problems/median-of-two-sorted-arrays/",
+    "content": "Given two sorted arrays, return the median of the two sorted arrays."
+  },
+  {
+    "title": "Next Permutation",
+    "difficulty": "Medium",
+    "category": "Arrays",
+    "company": "Flipkart",
+    "url": "https://leetcode.com/problems/next-permutation/",
+    "content": "Rearrange numbers into the lexicographically next greater permutation of numbers."
+  },
+  {
+    "title": "Reverse Linked List",
+    "difficulty": "Easy",
+    "category": "Linked Lists",
+    "company": "Flipkart",
+    "url": "https://leetcode.com/problems/reverse-linked-list/",
+    "content": "Reverse a singly linked list."
+  },
+  {
+    "title": "Search in Rotated Sorted Array",
+    "difficulty": "Medium",
+    "category": "Binary Search",
+    "company": "Flipkart",
+    "url": "https://leetcode.com/problems/search-in-rotated-sorted-array/",
+    "content": "Search for a target value in a rotated sorted array."
+  },
+  {
+    "title": "Coin Change",
+    "difficulty": "Medium",
+    "category": "DP",
+    "company": "Flipkart",
+    "url": "https://leetcode.com/problems/coin-change/",
+    "content": "Return the fewest number of coins that you need to make up that amount."
+  },
+  {
+    "title": "Longest Increasing Subsequence",
+    "difficulty": "Medium",
+    "category": "DP",
+    "company": "Flipkart",
+    "url": "https://leetcode.com/problems/longest-increasing-subsequence/",
+    "content": "Find the length of the longest strictly increasing subsequence."
+  },
+  {
+    "title": "Binary Tree Level Order Traversal",
+    "difficulty": "Medium",
+    "category": "Trees",
+    "company": "Flipkart",
+    "url": "https://leetcode.com/problems/binary-tree-level-order-traversal/",
+    "content": "Given the root of a binary tree, return the level order traversal of its nodes' values."
+  },
+  {
+    "title": "Word Break",
+    "difficulty": "Medium",
+    "category": "DP",
+    "company": "Flipkart",
+    "url": "https://leetcode.com/problems/word-break/",
+    "content": "Return true if s can be segmented into a space-separated sequence of dictionary words."
+  },
+  {
+    "title": "Maximum Product Subarray",
+    "difficulty": "Medium",
+    "category": "DP",
+    "company": "Flipkart",
+    "url": "https://leetcode.com/problems/maximum-product-subarray/",
+    "content": "Find a contiguous non-empty subarray within an array that has the largest product."
+  },
+  {
+    "title": "Find Minimum in Rotated Sorted Array",
+    "difficulty": "Medium",
+    "category": "Binary Search",
+    "company": "Flipkart",
+    "url": "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/",
+    "content": "Find the minimum element in a sorted and rotated array."
+  },
+  {
+    "title": "Decode Ways",
+    "difficulty": "Medium",
+    "category": "DP",
+    "company": "Flipkart",
+    "url": "https://leetcode.com/problems/decode-ways/",
+    "content": "Given a string s containing only digits, return the number of ways to decode it."
+  },
+  {
+    "title": "Shortest Path in Weighted Grid",
+    "difficulty": "Medium",
+    "category": "Graphs",
+    "company": "Goldman Sachs",
+    "url": "https://leetcode.com/problems/network-delay-time/",
+    "content": "Implement Dijkstra's algorithm to find the minimum cost path in a directed weighted graph."
+  },
+  {
+    "title": "Stock Maximization with Fees",
+    "difficulty": "Medium",
+    "category": "DP",
+    "company": "Goldman Sachs",
+    "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/",
+    "content": "Find the maximum profit achievable from trading stocks given a transaction fee."
+  },
+  {
+    "title": "Minimum Size Subarray Sum",
+    "difficulty": "Medium",
+    "category": "Two Pointers",
+    "company": "Goldman Sachs",
+    "url": "https://leetcode.com/problems/minimum-size-subarray-sum/",
+    "content": "Find the minimal length of a contiguous subarray of which the sum is greater than or equal to target."
+  },
+  {
+    "title": "Group Anagrams",
+    "difficulty": "Medium",
+    "category": "Strings",
+    "company": "Goldman Sachs",
+    "url": "https://leetcode.com/problems/group-anagrams/",
+    "content": "Group a list of strings into anagrams."
+  },
+  {
+    "title": "Spiral Matrix",
+    "difficulty": "Medium",
+    "category": "Arrays",
+    "company": "Goldman Sachs",
+    "url": "https://leetcode.com/problems/spiral-matrix/",
+    "content": "Return all elements of a matrix in spiral order."
+  },
+  {
+    "title": "Valid Parentheses",
+    "difficulty": "Easy",
+    "category": "Stacks",
+    "company": "Goldman Sachs",
+    "url": "https://leetcode.com/problems/valid-parentheses/",
+    "content": "Determine if the input string has valid brackets."
+  },
+  {
+    "title": "Climbing Stairs",
+    "difficulty": "Easy",
+    "category": "DP",
+    "company": "Goldman Sachs",
+    "url": "https://leetcode.com/problems/climbing-stairs/",
+    "content": "Find the number of distinct ways to climb to the top of a staircase."
+  },
+  {
+    "title": "Edit Distance",
+    "difficulty": "Hard",
+    "category": "DP",
+    "company": "Goldman Sachs",
+    "url": "https://leetcode.com/problems/edit-distance/",
+    "content": "Find the minimum number of operations required to convert word1 to word2."
+  },
+  {
+    "title": "Course Schedule",
+    "difficulty": "Medium",
+    "category": "Graphs",
+    "company": "Goldman Sachs",
+    "url": "https://leetcode.com/problems/course-schedule/",
+    "content": "Determine if you can finish all courses given prerequisite pairs (Topological Sort)."
+  },
+  {
+    "title": "Longest Palindromic Substring",
+    "difficulty": "Medium",
+    "category": "Strings",
+    "company": "Goldman Sachs",
+    "url": "https://leetcode.com/problems/longest-palindromic-substring/",
+    "content": "Return the longest palindromic substring in s."
+  },
+  {
+    "title": "Sort Colors",
+    "difficulty": "Medium",
+    "category": "Arrays",
+    "company": "Myntra",
+    "url": "https://leetcode.com/problems/sort-colors/",
+    "content": "Sort an array of 0s, 1s, and 2s in-place (Dutch National Flag algorithm)."
+  },
+  {
+    "title": "Merge k Sorted Lists",
+    "difficulty": "Hard",
+    "category": "Linked Lists",
+    "company": "Myntra",
+    "url": "https://leetcode.com/problems/merge-k-sorted-lists/",
+    "content": "Merge k sorted linked lists and return it as one sorted list."
+  },
+  {
+    "title": "Lowest Common Ancestor of a Binary Tree",
+    "difficulty": "Medium",
+    "category": "Trees",
+    "company": "Myntra",
+    "url": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/",
+    "content": "Find the lowest common ancestor (LCA) of two given nodes in the tree."
+  },
+  {
+    "title": "Serialize and Deserialize Binary Tree",
+    "difficulty": "Hard",
+    "category": "Trees",
+    "company": "Myntra",
+    "url": "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/",
+    "content": "Design an algorithm to serialize and deserialize a binary tree."
+  },
+  {
+    "title": "Binary Tree Maximum Path Sum",
+    "difficulty": "Hard",
+    "category": "Trees",
+    "company": "Myntra",
+    "url": "https://leetcode.com/problems/binary-tree-maximum-path-sum/",
+    "content": "Find the maximum path sum of any non-empty path in a binary tree."
+  },
+  {
+    "title": "Construct Binary Tree from Preorder and Inorder Traversal",
+    "difficulty": "Medium",
+    "category": "Trees",
+    "company": "Myntra",
+    "url": "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/",
+    "content": "Construct a binary tree given its preorder and inorder traversals."
+  },
+  {
+    "title": "Validate Binary Search Tree",
+    "difficulty": "Medium",
+    "category": "Trees",
+    "company": "Myntra",
+    "url": "https://leetcode.com/problems/validate-binary-search-tree/",
+    "content": "Determine if a valid binary search tree (BST) is formed."
+  },
+  {
+    "title": "Kth Smallest Element in a BST",
+    "difficulty": "Medium",
+    "category": "Trees",
+    "company": "Myntra",
+    "url": "https://leetcode.com/problems/kth-smallest-element-in-a-bst/",
+    "content": "Find the kth smallest value (1-indexed) of all the values of the nodes in the tree."
+  },
+  {
+    "title": "Implement Trie (Prefix Tree)",
+    "difficulty": "Medium",
+    "category": "Tries",
+    "company": "Myntra",
+    "url": "https://leetcode.com/problems/implement-trie-prefix-tree/",
+    "content": "Implement the Trie class with insert, search, and startsWith methods."
+  },
+  {
+    "title": "Add and Search Word",
+    "difficulty": "Medium",
+    "category": "Tries",
+    "company": "Myntra",
+    "url": "https://leetcode.com/problems/design-add-and-search-words-data-structure/",
+    "content": "Design a data structure that supports adding new words and finding if a string matches any previously added string."
+  },
+  {
+    "title": "Sliding Window Maximum",
+    "difficulty": "Hard",
+    "category": "Sliding Window",
+    "company": "Meesho",
+    "url": "https://leetcode.com/problems/sliding-window-maximum/",
+    "content": "Return the max sliding window array."
+  },
+  {
+    "title": "Minimum Window Substring",
+    "difficulty": "Hard",
+    "category": "Sliding Window",
+    "company": "Meesho",
+    "url": "https://leetcode.com/problems/minimum-window-substring/",
+    "content": "Return the minimum window substring of s such that every character in t is included in the window."
+  },
+  {
+    "title": "Longest Substring Without Repeating Characters",
+    "difficulty": "Medium",
+    "category": "Sliding Window",
+    "company": "Meesho",
+    "url": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+    "content": "Find the length of the longest substring without repeating characters."
+  },
+  {
+    "title": "Find Median from Data Stream",
+    "difficulty": "Hard",
+    "category": "Heaps",
+    "company": "Meesho",
+    "url": "https://leetcode.com/problems/find-median-from-data-stream/",
+    "content": "Design a data structure that calculates the median of all elements."
+  },
+  {
+    "title": "Copy List with Random Pointer",
+    "difficulty": "Medium",
+    "category": "Linked Lists",
+    "company": "Meesho",
+    "url": "https://leetcode.com/problems/copy-list-with-random-pointer/",
+    "content": "Construct a deep copy of a linked list with random pointers."
+  },
+  {
+    "title": "Linked List Cycle",
+    "difficulty": "Easy",
+    "category": "Linked Lists",
+    "company": "Meesho",
+    "url": "https://leetcode.com/problems/linked-list-cycle/",
+    "content": "Determine if a linked list has a cycle in it."
+  },
+  {
+    "title": "Intersection of Two Linked Lists",
+    "difficulty": "Easy",
+    "category": "Linked Lists",
+    "company": "Meesho",
+    "url": "https://leetcode.com/problems/intersection-of-two-linked-lists/",
+    "content": "Return the node at which the two linked lists intersect."
+  },
+  {
+    "title": "Palindrome Linked List",
+    "difficulty": "Easy",
+    "category": "Linked Lists",
+    "company": "Meesho",
+    "url": "https://leetcode.com/problems/palindrome-linked-list/",
+    "content": "Determine if a linked list is a palindrome."
+  },
+  {
+    "title": "Remove Nth Node From End of List",
+    "difficulty": "Medium",
+    "category": "Linked Lists",
+    "company": "Meesho",
+    "url": "https://leetcode.com/problems/remove-nth-node-from-end-of-list/",
+    "content": "Remove the nth node from the end of the list and return its head."
+  },
+  {
+    "title": "Merge Two Sorted Lists",
+    "difficulty": "Easy",
+    "category": "Linked Lists",
+    "company": "Meesho",
+    "url": "https://leetcode.com/problems/merge-two-sorted-lists/",
+    "content": "Merge two sorted linked lists into one."
+  },
+  {
+    "title": "Regular Expression Matching",
+    "difficulty": "Hard",
+    "category": "DP",
+    "company": "Google",
+    "url": "https://leetcode.com/problems/regular-expression-matching/",
+    "content": "Implement regular expression matching with support for '.' and '*'."
+  },
+  {
+    "title": "Container With Most Water",
+    "difficulty": "Medium",
+    "category": "Two Pointers",
+    "company": "Google",
+    "url": "https://leetcode.com/problems/container-with-most-water/",
+    "content": "Find two lines that together with the x-axis form a container, such that the container contains the most water."
+  },
+  {
+    "title": "3Sum",
+    "difficulty": "Medium",
+    "category": "Arrays",
+    "company": "Google",
+    "url": "https://leetcode.com/problems/3sum/",
+    "content": "Find all unique triplets in the array which gives the sum of zero."
+  },
+  {
+    "title": "Letter Combinations of a Phone Number",
+    "difficulty": "Medium",
+    "category": "Backtracking",
+    "company": "Google",
+    "url": "https://leetcode.com/problems/letter-combinations-of-a-phone-number/",
+    "content": "Return all possible letter combinations that the number could represent."
+  },
+  {
+    "title": "Word Search II",
+    "difficulty": "Hard",
+    "category": "Tries",
+    "company": "Google",
+    "url": "https://leetcode.com/problems/word-search-ii/",
+    "content": "Given an m x n board of characters and a list of strings words, return all words on the board."
+  },
+  {
+    "title": "Evaluate Division",
+    "difficulty": "Medium",
+    "category": "Graphs",
+    "company": "Google",
+    "url": "https://leetcode.com/problems/evaluate-division/",
+    "content": "Evaluate query equations given a list of string variable pairs and their real number values."
+  },
+  {
+    "title": "Decode String",
+    "difficulty": "Medium",
+    "category": "Stacks",
+    "company": "Google",
+    "url": "https://leetcode.com/problems/decode-string/",
+    "content": "Decode an encoded string where k[encoded_string] means it is repeated k times."
+  },
+  {
+    "title": "Diameter of Binary Tree",
+    "difficulty": "Easy",
+    "category": "Trees",
+    "company": "Google",
+    "url": "https://leetcode.com/problems/diameter-of-binary-tree/",
+    "content": "Compute the length of the diameter of the tree."
+  },
+  {
+    "title": "Bulls and Cows",
+    "difficulty": "Medium",
+    "category": "Hash Table",
+    "company": "Google",
+    "url": "https://leetcode.com/problems/bulls-and-cows/",
+    "content": "Play the Bulls and Cows game and return the hint string."
+  },
+  {
+    "title": "Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit",
+    "difficulty": "Medium",
+    "category": "Sliding Window",
+    "company": "Google",
+    "url": "https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/",
+    "content": "Find the size of the longest continuous subarray such that the absolute difference between any two elements is less than or equal to limit."
+  },
+  {
+    "title": "Kth Largest Element in an Array",
+    "difficulty": "Medium",
+    "category": "Heaps",
+    "company": "Uber",
+    "url": "https://leetcode.com/problems/kth-largest-element-in-an-array/",
+    "content": "Find the kth largest element in an unsorted array."
+  },
+  {
+    "title": "Find Peak Element",
+    "difficulty": "Medium",
+    "category": "Binary Search",
+    "company": "Uber",
+    "url": "https://leetcode.com/problems/find-peak-element/",
+    "content": "Find a peak element and return its index."
+  },
+  {
+    "title": "Evaluate Reverse Polish Notation",
+    "difficulty": "Medium",
+    "category": "Stacks",
+    "company": "Uber",
+    "url": "https://leetcode.com/problems/evaluate-reverse-polish-notation/",
+    "content": "Evaluate the value of an arithmetic expression in Reverse Polish Notation."
+  },
+  {
+    "title": "Clone Graph",
+    "difficulty": "Medium",
+    "category": "Graphs",
+    "company": "Uber",
+    "url": "https://leetcode.com/problems/clone-graph/",
+    "content": "Return a deep copy of a connected undirected graph."
+  },
+  {
+    "title": "Course Schedule II",
+    "difficulty": "Medium",
+    "category": "Graphs",
+    "company": "Uber",
+    "url": "https://leetcode.com/problems/course-schedule-ii/",
+    "content": "Find the ordering of courses you should take to finish all courses."
+  },
+  {
+    "title": "Pacific Atlantic Water Flow",
+    "difficulty": "Medium",
+    "category": "Graphs",
+    "company": "Uber",
+    "url": "https://leetcode.com/problems/pacific-atlantic-water-flow/",
+    "content": "Find the list of grid coordinates where water can flow to both the Pacific and Atlantic oceans."
+  },
+  {
+    "title": "Number of Provinces",
+    "difficulty": "Medium",
+    "category": "Graphs",
+    "company": "Uber",
+    "url": "https://leetcode.com/problems/number-of-provinces/",
+    "content": "Find the total number of connected component provinces."
+  },
+  {
+    "title": "Redundant Connection",
+    "difficulty": "Medium",
+    "category": "Graphs",
+    "company": "Uber",
+    "url": "https://leetcode.com/problems/redundant-connection/",
+    "content": "Return an edge that can be removed to make the graph a tree."
+  },
+  {
+    "title": "Cheapest Flights Within K Stops",
+    "difficulty": "Medium",
+    "category": "Graphs",
+    "company": "Uber",
+    "url": "https://leetcode.com/problems/cheapest-flights-within-k-stops/",
+    "content": "Find the cheapest price from src to dst with up to k stops."
+  },
+  {
+    "title": "Word Search",
+    "difficulty": "Medium",
+    "category": "Backtracking",
+    "company": "Uber",
+    "url": "https://leetcode.com/problems/word-search/",
+    "content": "Given an m x n grid of characters board and a string word, return true if word exists in the grid."
+  },
+  {
+    "title": "N-Queens",
+    "difficulty": "Hard",
+    "category": "Backtracking",
+    "company": "DeShaw",
+    "url": "https://leetcode.com/problems/n-queens/",
+    "content": "Place n queens on an n x n chessboard such that no two queens attack each other."
+  },
+  {
+    "title": "Sudoku Solver",
+    "difficulty": "Hard",
+    "category": "Backtracking",
+    "company": "DeShaw",
+    "url": "https://leetcode.com/problems/sudoku-solver/",
+    "content": "Write a program to solve a Sudoku puzzle by filling the empty cells."
+  },
+  {
+    "title": "Combination Sum",
+    "difficulty": "Medium",
+    "category": "Backtracking",
+    "company": "DeShaw",
+    "url": "https://leetcode.com/problems/combination-sum/",
+    "content": "Find all unique combinations in candidates where the candidate numbers sum to target."
+  },
+  {
+    "title": "Permutations",
+    "difficulty": "Medium",
+    "category": "Backtracking",
+    "company": "DeShaw",
+    "url": "https://leetcode.com/problems/permutations/",
+    "content": "Given an array of distinct integers, return all the possible permutations."
+  },
+  {
+    "title": "Subsets",
+    "difficulty": "Medium",
+    "category": "Backtracking",
+    "company": "DeShaw",
+    "url": "https://leetcode.com/problems/subsets/",
+    "content": "Given an integer array nums of unique elements, return all possible subsets."
+  },
+  {
+    "title": "Generate Parentheses",
+    "difficulty": "Medium",
+    "category": "Backtracking",
+    "company": "DeShaw",
+    "url": "https://leetcode.com/problems/generate-parentheses/",
+    "content": "Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses."
+  },
+  {
+    "title": "Palindrome Partitioning",
+    "difficulty": "Medium",
+    "category": "Backtracking",
+    "company": "DeShaw",
+    "url": "https://leetcode.com/problems/palindrome-partitioning/",
+    "content": "Partition s such that every substring of the partition is a palindrome."
+  },
+  {
+    "title": "Minimum Path Sum",
+    "difficulty": "Medium",
+    "category": "DP",
+    "company": "DeShaw",
+    "url": "https://leetcode.com/problems/minimum-path-sum/",
+    "content": "Find a path from top left to bottom right, which minimizes the sum of all numbers along its path."
+  },
+  {
+    "title": "Jump Game",
+    "difficulty": "Medium",
+    "category": "Greedy",
+    "company": "DeShaw",
+    "url": "https://leetcode.com/problems/jump-game/",
+    "content": "Determine if you are able to reach the last index."
+  },
+  {
+    "title": "Jump Game II",
+    "difficulty": "Medium",
+    "category": "Greedy",
+    "company": "DeShaw",
+    "url": "https://leetcode.com/problems/jump-game-ii/",
+    "content": "Find the minimum number of jumps to reach the last index."
+  },
+  {
+    "title": "Fizz Buzz",
+    "difficulty": "Easy",
+    "category": "Math",
+    "company": "Deloitte",
+    "url": "https://leetcode.com/problems/fizz-buzz/",
+    "content": "Return a string array representing the FizzBuzz sequence."
+  },
+  {
+    "title": "Reverse String",
+    "difficulty": "Easy",
+    "category": "Strings",
+    "company": "Deloitte",
+    "url": "https://leetcode.com/problems/reverse-string/",
+    "content": "Reverse an array of characters in-place."
+  },
+  {
+    "title": "Single Number",
+    "difficulty": "Easy",
+    "category": "Bit Manipulation",
+    "company": "Deloitte",
+    "url": "https://leetcode.com/problems/single-number/",
+    "content": "Find the single element that appears only once in an array where every other element appears twice."
+  },
+  {
+    "title": "Majority Element",
+    "difficulty": "Easy",
+    "category": "Arrays",
+    "company": "Deloitte",
+    "url": "https://leetcode.com/problems/majority-element/",
+    "content": "Find the majority element that appears more than n/2 times."
+  },
+  {
+    "title": "Missing Number",
+    "difficulty": "Easy",
+    "category": "Math",
+    "company": "Deloitte",
+    "url": "https://leetcode.com/problems/missing-number/",
+    "content": "Return the only number in the range that is missing from the array."
+  },
+  {
+    "title": "Move Zeroes",
+    "difficulty": "Easy",
+    "category": "Arrays",
+    "company": "Deloitte",
+    "url": "https://leetcode.com/problems/move-zeroes/",
+    "content": "Move all 0's to the end of the array while maintaining the relative order of the non-zero elements."
+  },
+  {
+    "title": "Intersection of Two Arrays",
+    "difficulty": "Easy",
+    "category": "Arrays",
+    "company": "Deloitte",
+    "url": "https://leetcode.com/problems/intersection-of-two-arrays/",
+    "content": "Compute the intersection of two arrays."
+  },
+  {
+    "title": "Valid Anagram",
+    "difficulty": "Easy",
+    "category": "Strings",
+    "company": "Deloitte",
+    "url": "https://leetcode.com/problems/valid-anagram/",
+    "content": "Determine if string t is an anagram of string s."
+  },
+  {
+    "title": "Contains Duplicate",
+    "difficulty": "Easy",
+    "category": "Arrays",
+    "company": "Deloitte",
+    "url": "https://leetcode.com/problems/contains-duplicate/",
+    "content": "Return true if any value appears at least twice in the array."
+  },
+  {
+    "title": "Excel Sheet Column Number",
+    "difficulty": "Easy",
+    "category": "Math",
+    "company": "Deloitte",
+    "url": "https://leetcode.com/problems/excel-sheet-column-number/",
+    "content": "Given a string columnTitle that represents the column title as appear in an Excel sheet, return its corresponding column number."
+  },
+  {
+    "title": "Longest Common Prefix",
+    "difficulty": "Easy",
+    "category": "Strings",
+    "company": "Salesforce",
+    "url": "https://leetcode.com/problems/longest-common-prefix/",
+    "content": "Find the longest common prefix string amongst an array of strings."
+  },
+  {
+    "title": "Valid Palindrome",
+    "difficulty": "Easy",
+    "category": "Two Pointers",
+    "company": "Salesforce",
+    "url": "https://leetcode.com/problems/valid-palindrome/",
+    "content": "Determine if a string is a valid palindrome, ignoring cases and non-alphanumeric characters."
+  },
+  {
+    "title": "Find the Index of the First Occurrence in a String",
+    "difficulty": "Easy",
+    "category": "Strings",
+    "company": "Salesforce",
+    "url": "https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/",
+    "content": "Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack."
+  },
+  {
+    "title": "String to Integer (atoi)",
+    "difficulty": "Medium",
+    "category": "Strings",
+    "company": "Salesforce",
+    "url": "https://leetcode.com/problems/string-to-integer-atoi/",
+    "content": "Implement the myAtoi(string s) function, which converts a string to a 32-bit signed integer."
+  },
+  {
+    "title": "Add Binary",
+    "difficulty": "Easy",
+    "category": "Math",
+    "company": "Salesforce",
+    "url": "https://leetcode.com/problems/add-binary/",
+    "content": "Given two binary strings a and b, return their sum as a binary string."
+  },
+  {
+    "title": "Multiply Strings",
+    "difficulty": "Medium",
+    "category": "Math",
+    "company": "Salesforce",
+    "url": "https://leetcode.com/problems/multiply-strings/",
+    "content": "Given two non-negative integers represented as strings, return the product."
+  },
+  {
+    "title": "Reverse Words in a String",
+    "difficulty": "Medium",
+    "category": "Strings",
+    "company": "Salesforce",
+    "url": "https://leetcode.com/problems/reverse-words-in-a-string/",
+    "content": "Reverse the order of the words in a string."
+  },
+  {
+    "title": "Simplify Path",
+    "difficulty": "Medium",
+    "category": "Stacks",
+    "company": "Salesforce",
+    "url": "https://leetcode.com/problems/simplify-path/",
+    "content": "Convert an absolute Unix path to a simplified canonical path."
+  },
+  {
+    "title": "Length of Last Word",
+    "difficulty": "Easy",
+    "category": "Strings",
+    "company": "Salesforce",
+    "url": "https://leetcode.com/problems/length-of-last-word/",
+    "content": "Return the length of the last word in the string."
+  },
+  {
+    "title": "Zigzag Conversion",
+    "difficulty": "Medium",
+    "category": "Strings",
+    "company": "Salesforce",
+    "url": "https://leetcode.com/problems/zigzag-conversion/",
+    "content": "Write the code that will take a string and make this zigzag conversion given a number of rows."
+  },
+  {
+    "title": "First Missing Positive",
+    "difficulty": "Hard",
+    "category": "Arrays",
+    "company": "Sprinklr",
+    "url": "https://leetcode.com/problems/first-missing-positive/",
+    "content": "Find the smallest missing positive integer in an unsorted array."
+  },
+  {
+    "title": "Largest Rectangle in Histogram",
+    "difficulty": "Hard",
+    "category": "Stacks",
+    "company": "Sprinklr",
+    "url": "https://leetcode.com/problems/largest-rectangle-in-histogram/",
+    "content": "Find the area of largest rectangle in the histogram."
+  },
+  {
+    "title": "Maximal Rectangle",
+    "difficulty": "Hard",
+    "category": "DP",
+    "company": "Sprinklr",
+    "url": "https://leetcode.com/problems/maximal-rectangle/",
+    "content": "Find the largest rectangle containing only 1s and return its area in a 2D binary matrix."
+  },
+  {
+    "title": "Perfect Squares",
+    "difficulty": "Medium",
+    "category": "DP",
+    "company": "Sprinklr",
+    "url": "https://leetcode.com/problems/perfect-squares/",
+    "content": "Return the least number of perfect square numbers that sum to n."
+  },
+  {
+    "title": "House Robber",
+    "difficulty": "Medium",
+    "category": "DP",
+    "company": "Sprinklr",
+    "url": "https://leetcode.com/problems/house-robber/",
+    "content": "Determine the maximum amount of money you can rob tonight without alerting the police."
+  },
+  {
+    "title": "House Robber II",
+    "difficulty": "Medium",
+    "category": "DP",
+    "company": "Sprinklr",
+    "url": "https://leetcode.com/problems/house-robber-ii/",
+    "content": "Determine the maximum amount of money you can rob from houses arranged in a circle."
+  },
+  {
+    "title": "House Robber III",
+    "difficulty": "Medium",
+    "category": "Trees",
+    "company": "Sprinklr",
+    "url": "https://leetcode.com/problems/house-robber-iii/",
+    "content": "Determine the maximum amount of money the thief can rob in a binary tree neighborhood."
+  },
+  {
+    "title": "Unique Paths",
+    "difficulty": "Medium",
+    "category": "DP",
+    "company": "Sprinklr",
+    "url": "https://leetcode.com/problems/unique-paths/",
+    "content": "Find the number of possible unique paths from the top-left to the bottom-right of a grid."
+  },
+  {
+    "title": "Unique Paths II",
+    "difficulty": "Medium",
+    "category": "DP",
+    "company": "Sprinklr",
+    "url": "https://leetcode.com/problems/unique-paths-ii/",
+    "content": "Find the number of possible unique paths in a grid with obstacles."
+  },
+  {
+    "title": "Minimum Path Sum",
+    "difficulty": "Medium",
+    "category": "DP",
+    "company": "Sprinklr",
+    "url": "https://leetcode.com/problems/minimum-path-sum/",
+    "content": "Find a path from top left to bottom right, which minimizes the sum of all numbers along its path."
+  }
+]

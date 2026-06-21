@@ -1,0 +1,18 @@
+[
+  {
+    "company": "Arcesium",
+    "role": "Software Developer Intern",
+    "date": "May 2025",
+    "topics": "Graph Data Structures, Low-Level Design, C++",
+    "summary": "The technical round focused heavily on Graph traversal algorithms and a Low-Level Design question involving an in-memory file system. The interviewer expected highly optimized C++ code.",
+    "fullUrl": "https://www.geeksforgeeks.org/category/experiences/interview-experiences/"
+  },
+  {
+    "company": "Goldman Sachs",
+    "role": "SDE Intern",
+    "date": "May 2026",
+    "topics": "Dynamic Programming, Probability & Math, OS Threads",
+    "summary": "Round 1 was an OA with 2 coding questions (array manipulation and a hard DP stock maximization problem). Round 2 was a technical deep dive into OS Threading vs Multiprocessing, followed by Dijkstra's algorithm on a shared doc.",
+    "fullUrl": "https://www.geeksforgeeks.org/category/experiences/interview-experiences/"
+  }
+]
