@@ -13,6 +13,7 @@ const adapter = new PrismaMariaDb({
   user: parsed.username,
   password: parsed.password,
   database: parsed.pathname.slice(1),
+  ssl: true
 });
 
 const prisma = new PrismaClient({ adapter });
