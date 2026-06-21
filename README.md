@@ -1,30 +1,38 @@
 # JobAssist
 
-JobAssist is a placement preparation dashboard for Indian students. It helps track DSA problems, resume ATS checks, hackathons, and interview experience archives in one place.
+JobAssist is a placement preparation website built for Indian students who want one focused place to prepare for campus placements, off-campus drives, hackathons, interviews, and resume screening.
 
-## Getting Started
+## What JobAssist Offers
 
-Install dependencies:
+### DSA Problem Bank
 
-```bash
-npm install
-```
+Track company-wise DSA practice with a Kanban-style workflow. Problems can be moved through preparation stages so students can clearly see what is unsolved, what needs revision, and what is mastered.
 
-Apply database migrations and seed starter data:
+### Hackathon Radar
 
-```bash
-npx prisma migrate dev
-npx prisma db seed
-```
+Discover hackathons, coding challenges, and hiring contests with details like organizer, deadline, tags, and registration links.
 
-Run the development server:
+### Interview Archives
 
-```bash
-npm run dev
-```
+Read short summaries of real interview experiences with important topics and links to full GeeksforGeeks articles for deeper preparation.
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+### Resume ATS Scanner
 
-## Environment
+Upload a resume and get an ATS-focused analysis with a score, matched keywords, missing keywords, section feedback, and improvement suggestions.
 
-Create a local `.env` file with your database and auth secrets. Do not commit `.env` to GitHub.
+### Student Dashboard
+
+After login, students get a focused dashboard for tracking their preparation progress, profile, resume scan, problem bank, hackathons, and interview resources.
+
+## Built For
+
+- College students preparing for campus placements
+- Final-year students applying off-campus
+- Students targeting internships and fresher roles
+- Learners preparing for DSA, resumes, interviews, and hackathons
+
+## Goal
+
+JobAssist aims to make placement preparation less scattered by bringing the most important student workflows into one clean dashboard.
+
+Instead of jumping between notes, spreadsheets, problem lists, hackathon links, and interview articles, students can organize their preparation from one place.
