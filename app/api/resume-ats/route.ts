@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { extractPdfText } from "@/lib/resumePdf";
+import pdfParse from "pdf-parse";
 
 export const runtime = "nodejs";
 
@@ -86,14 +86,14 @@ export async function POST(request: NextRequest) {
     }
 
     const arrayBuffer = await file.arrayBuffer();
-    const fileBuffer = Buffer.from(arrayBuffer);
-    const extractedText = await extractPdfText(fileBuffer);
+    const buffer = Buffer.from(arrayBuffer);
+    const pdfData = await pdfParse(buffer);
+    const extractedText = pdfData.text?.trim() ?? "";
 
-    if (extractedText.length < 80) {
+    if (!extractedText) {
       return NextResponse.json(
         {
-          error:
-            "We could not read enough text from this PDF. Please upload a text-based resume PDF instead of a scanned image.",
+          error: "Could not extract text from PDF. Please upload a text-based resume PDF instead of a scanned image.",
         },
         { status: 422 }
       );

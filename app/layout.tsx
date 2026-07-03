@@ -16,7 +16,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "JobAssist - Indian Placement & Interview Hub",
+  title: "JobAssist",
   description:
     "A placement prep hub for Indian students. Master DSA, practice interviews, improve your resume, and track campus and off-campus opportunities.",
 };
