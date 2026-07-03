@@ -71,7 +71,7 @@ export default function ContestTrackerClient({
         className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between"
       >
         <div>
-          <div className="mb-3 inline-flex items-center gap-2 rounded-lg border border-primary/20 bg-primary/10 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-primary">
+          <div className="mb-3 inline-flex items-center gap-2 rounded-lg border border-primary/20 bg-primary/10 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-orange-700 dark:text-primary">
             <Trophy className="h-3.5 w-3.5" />
             Competitive Programming
           </div>
@@ -103,10 +103,10 @@ export default function ContestTrackerClient({
         }}
         className="grid gap-4 lg:grid-cols-[minmax(0,3fr)_minmax(280px,1fr)]"
       >
-        <section className="overflow-hidden rounded-2xl border border-outline-variant bg-[#141414] shadow-[0_0_24px_rgba(253,157,39,0.04)]">
-          <div className="flex items-center justify-between border-b border-outline-variant/70 bg-[#0a0a0a] px-4 py-3 md:px-5">
+        <section className="overflow-hidden rounded-2xl border border-outline-variant bg-surface-container-low shadow-[0_0_24px_rgba(253,157,39,0.04)]">
+          <div className="flex items-center justify-between border-b border-outline-variant/70 bg-surface px-4 py-3 md:px-5">
             <div className="flex items-center gap-3">
-              <CalendarDays className="h-5 w-5 text-primary" />
+              <CalendarDays className="h-5 w-5 text-orange-700 dark:text-primary" />
               <h2 className="text-lg font-bold text-display md:text-xl">
                 {MONTH_FORMATTER.format(visibleMonth)}
               </h2>
@@ -157,7 +157,7 @@ function CalendarGrid({
   return (
     <div className="overflow-x-auto">
       <div className="min-w-[760px]">
-        <div className="grid grid-cols-7 border-b border-outline-variant/70 bg-[#0a0a0a]">
+        <div className="grid grid-cols-7 border-b border-outline-variant/70 bg-surface">
           {WEEKDAYS.map((day) => (
             <div
               key={day}
@@ -179,12 +179,12 @@ function CalendarGrid({
               <div
                 key={dateKey}
                 className={`min-h-[8.5rem] border-b border-r border-outline-variant/70 p-2 last:border-r-0 md:min-h-[9.25rem] ${
-                  isToday ? "bg-info/20" : "bg-[#141414]"
+                  isToday ? "bg-info/10" : "bg-surface-container-low"
                 }`}
               >
                 <div
                   className={`mb-2 text-center text-sm font-medium ${
-                    isCurrentMonth ? "text-body" : "text-body/35"
+                    isCurrentMonth ? "text-display" : "text-body/35"
                   }`}
                 >
                   {day.getDate()}
@@ -226,9 +226,9 @@ function ContestPill({ contest }: { contest: ContestEvent }) {
 
 function UpcomingContestsSidebar({ contests }: { contests: ContestEvent[] }) {
   return (
-    <aside className="rounded-2xl border border-outline-variant bg-[#141414] p-4 lg:sticky lg:top-28 lg:self-start">
+    <aside className="rounded-2xl border border-outline-variant bg-surface-container-low p-4 lg:sticky lg:top-28 lg:self-start">
       <div className="mb-4 flex items-center gap-2">
-        <Trophy className="h-5 w-5 text-primary" />
+        <Trophy className="h-5 w-5 text-orange-700 dark:text-primary" />
         <h2 className="text-xl font-bold tracking-tight text-display">
           Upcoming Contests
         </h2>
@@ -242,7 +242,7 @@ function UpcomingContestsSidebar({ contests }: { contests: ContestEvent[] }) {
               <UpcomingContestCard key={contest.id} contest={contest} />
             ))
         ) : (
-          <div className="rounded-xl border border-outline-variant/70 bg-[#0a0a0a] px-4 py-6 text-sm font-medium text-body">
+          <div className="rounded-xl border border-outline-variant/70 bg-surface px-4 py-6 text-sm font-medium text-body">
             No upcoming Codeforces, CodeChef, or LeetCode contests are available
             right now.
           </div>
@@ -264,7 +264,7 @@ function UpcomingContestCard({ contest }: { contest: ContestEvent }) {
       className="flex gap-3 border-b border-outline-variant/70 pb-3 transition-colors hover:border-primary/50 last:border-b-0 last:pb-0"
       title={`Open ${contest.name} on ${contest.platform}`}
     >
-      <div className="flex h-12 w-12 shrink-0 flex-col items-center justify-center rounded-lg border border-outline-variant bg-[#0a0a0a] text-display">
+      <div className="flex h-12 w-12 shrink-0 flex-col items-center justify-center rounded-lg border border-outline-variant bg-surface text-display">
         <span className="text-[10px] font-bold uppercase leading-none text-body">
           {SHORT_MONTH_FORMATTER.format(startDate)}
         </span>
@@ -297,7 +297,7 @@ function UpcomingContestCard({ contest }: { contest: ContestEvent }) {
 
 function ContestFetchAlert({ message }: { message: string }) {
   return (
-    <div className="rounded-2xl border border-warning/30 bg-warning/10 px-4 py-3 text-sm font-medium text-[#fcd34d]">
+    <div className="rounded-2xl border border-warning/30 bg-warning/10 px-4 py-3 text-sm font-medium text-amber-700 dark:text-warning">
       {message}
     </div>
   );

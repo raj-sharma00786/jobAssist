@@ -58,7 +58,7 @@ export default function DashboardOverview() {
             <div className="flex items-center justify-between mb-5">
               <div className="flex items-center gap-2.5">
                 <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center">
-                  <Code2 className="w-4.5 h-4.5 text-primary" />
+                  <Code2 className="w-4.5 h-4.5 text-orange-700 dark:text-primary" />
                 </div>
                 <span className="text-[10px] font-bold text-body uppercase tracking-[0.15em]">
                   Daily Challenge
@@ -68,11 +68,11 @@ export default function DashboardOverview() {
             <h3 className="text-xl font-bold text-display mb-1">LRU Cache</h3>
             <p className="text-sm text-body opacity-80">
               LeetCode 146 •{" "}
-              <span className="text-primary font-semibold">Medium</span>
+              <span className="text-orange-700 dark:text-primary font-semibold">Medium</span>
             </p>
             <Link
               href="/dashboard/problems"
-              className="inline-flex items-center gap-1.5 mt-5 text-sm font-semibold text-primary hover:opacity-80 transition-colors group/link"
+              className="inline-flex items-center gap-1.5 mt-5 text-sm font-semibold text-orange-700 dark:text-primary hover:opacity-80 transition-colors group/link"
             >
               Solve Now
               <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 transition-transform" />
@@ -93,13 +93,13 @@ export default function DashboardOverview() {
             <div className="flex items-center justify-between mb-5">
               <div className="flex items-center gap-2.5">
                 <div className="w-9 h-9 rounded-xl bg-[#facc15]/10 flex items-center justify-center">
-                  <CalendarDays className="w-4.5 h-4.5 text-[#facc15]" />
+                  <CalendarDays className="w-4.5 h-4.5 text-yellow-700 dark:text-[#facc15]" />
                 </div>
                 <span className="text-[10px] font-bold text-body uppercase tracking-[0.15em]">
                   Next Contest
                 </span>
               </div>
-              <span className="text-[10px] font-bold text-[#ef4444] uppercase tracking-wider bg-[#ef4444]/10 px-2.5 py-1 rounded-lg">
+              <span className="text-[10px] font-bold text-red-700 dark:text-error uppercase tracking-wider bg-error/10 px-2.5 py-1 rounded-lg">
                 Urgent
               </span>
             </div>
@@ -109,7 +109,7 @@ export default function DashboardOverview() {
             <p className="text-sm text-body opacity-80">LeetCode - Jul 4</p>
             <Link
               href="/dashboard/contests"
-              className="inline-flex items-center gap-1.5 mt-5 text-sm font-semibold text-[#facc15] hover:opacity-80 transition-colors group/link"
+              className="inline-flex items-center gap-1.5 mt-5 text-sm font-semibold text-yellow-700 dark:text-[#facc15] hover:opacity-80 transition-colors group/link"
             >
               View Calendar
               <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 transition-transform" />
@@ -129,7 +129,7 @@ export default function DashboardOverview() {
           <div className="relative z-10">
             <div className="flex items-center gap-2.5 mb-5">
               <div className="w-9 h-9 rounded-xl bg-secondary/10 flex items-center justify-center">
-                <BarChart3 className="w-4.5 h-4.5 text-secondary" />
+                <BarChart3 className="w-4.5 h-4.5 text-green-700 dark:text-secondary" />
               </div>
               <span className="text-[10px] font-bold text-body uppercase tracking-[0.15em]">
                 Prep Stats
@@ -143,7 +143,7 @@ export default function DashboardOverview() {
                 <p className="text-xs text-body opacity-80 mt-1">Problems Solved</p>
               </div>
               <div className="flex items-center gap-1.5">
-                <Flame className="w-4 h-4 text-[#ef4444]" />
+                <Flame className="w-4 h-4 text-red-700 dark:text-error" />
                 <div>
                   <p className="text-3xl font-bold text-display leading-none">
                     12
@@ -152,7 +152,7 @@ export default function DashboardOverview() {
                 </div>
               </div>
               <div>
-                <p className="text-2xl font-bold text-secondary leading-none flex items-center gap-1">
+                <p className="text-2xl font-bold text-green-700 dark:text-secondary leading-none flex items-center gap-1">
                   <Trophy className="w-4 h-4" />
                   Top 15%
                 </p>
@@ -178,7 +178,7 @@ export default function DashboardOverview() {
           <div className="relative z-10">
             <div className="flex items-center gap-2.5 mb-4">
               <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center">
-                <TrendingUp className="w-4.5 h-4.5 text-primary" />
+                <TrendingUp className="w-4.5 h-4.5 text-orange-700 dark:text-primary" />
               </div>
             </div>
             <h3 className="text-xl font-bold text-display mb-3">

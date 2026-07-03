@@ -62,22 +62,22 @@ const fadeUp = {
 const accentClasses = {
   primary: {
     bg: "bg-primary/10",
-    text: "text-primary",
+    text: "text-orange-700 dark:text-primary",
     border: "hover:border-primary/35",
   },
   secondary: {
     bg: "bg-secondary/10",
-    text: "text-secondary",
+    text: "text-green-700 dark:text-secondary",
     border: "hover:border-secondary/35",
   },
   accent: {
     bg: "bg-accent/10",
-    text: "text-accent",
+    text: "text-blue-700 dark:text-accent",
     border: "hover:border-accent/35",
   },
   info: {
     bg: "bg-info/10",
-    text: "text-info",
+    text: "text-blue-700 dark:text-info",
     border: "hover:border-info/35",
   },
 };
@@ -150,7 +150,7 @@ export default function HackathonsClient({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] as const }}
         >
-          <div className="mb-3 inline-flex items-center gap-2 rounded-lg border border-primary/20 bg-primary/10 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-primary">
+          <div className="mb-3 inline-flex items-center gap-2 rounded-lg border border-primary/20 bg-primary/10 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-orange-700 dark:text-primary">
             <Flame className="h-3.5 w-3.5" />
             Opportunity Radar
           </div>
@@ -174,11 +174,11 @@ export default function HackathonsClient({
           className="grid grid-cols-2 gap-3 sm:grid-cols-3"
         >
           <MetricCard label="Tracked" value={opportunities.length} />
-          <MetricCard label="Live Now" value={liveCount} valueClass="text-success" />
+          <MetricCard label="Live Now" value={liveCount} valueClass="text-green-700 dark:text-success" />
           <MetricCard
             label="Upcoming"
             value={upcomingCount}
-            valueClass="text-accent"
+            valueClass="text-blue-700 dark:text-accent"
             className="col-span-2 sm:col-span-1"
           />
         </motion.div>
@@ -266,8 +266,8 @@ export default function HackathonsClient({
             className="rounded-xl border border-outline-variant bg-surface/60 p-6"
           >
             <div className="mb-5 flex items-center gap-2">
-              <Sparkles className="h-4 w-4 text-accent" />
-              <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-accent">
+              <Sparkles className="h-4 w-4 text-blue-700 dark:text-accent" />
+              <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-blue-700 dark:text-accent">
                 Matching Insight
               </span>
             </div>
@@ -337,8 +337,8 @@ function OpportunityCard({
               <span
                 className={`rounded-lg px-2.5 py-1 text-xs font-bold ${
                   opportunity.status === "Live"
-                    ? "bg-success/10 text-success"
-                    : "bg-accent/10 text-accent"
+                    ? "bg-success/10 text-green-700 dark:text-success"
+                    : "bg-accent/10 text-blue-700 dark:text-accent"
                 }`}
               >
                 {opportunity.status}
@@ -365,14 +365,14 @@ function OpportunityCard({
           onClick={() => onToggleReminder(opportunity.id)}
           className={`inline-flex shrink-0 items-center justify-center gap-2 rounded-xl border px-4 py-2 text-sm font-semibold transition-all ${
             hasReminder
-              ? "border-primary/40 bg-primary/10 text-primary"
+              ? "border-primary/40 bg-primary/10 text-orange-700 dark:text-primary"
               : "border-outline-variant bg-surface text-display hover:bg-surface-container-highest"
           }`}
         >
           {hasReminder ? (
             <BellRing className="h-4 w-4" />
           ) : (
-            <Bell className="h-4 w-4 text-primary" />
+            <Bell className="h-4 w-4 text-orange-700 dark:text-primary" />
           )}
           {hasReminder ? "Reminder On" : "Remind"}
         </button>
@@ -406,7 +406,7 @@ function OpportunityCard({
               href={opportunity.sourceUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm font-bold text-primary transition-colors hover:opacity-80"
+              className="inline-flex items-center gap-1.5 text-sm font-bold text-orange-700 dark:text-primary transition-colors hover:opacity-80"
             >
               View Details
               <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />

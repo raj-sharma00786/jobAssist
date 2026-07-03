@@ -86,11 +86,11 @@ export default function NotificationMenu({
                     onClick={() => setIsOpen(false)}
                     className="flex gap-3 px-4 py-3 transition-colors hover:bg-surface-container"
                   >
-                    <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                    <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-orange-700 dark:text-primary">
                       <Icon className="h-4 w-4" />
                     </span>
                     <span className="min-w-0">
-                      <span className="block text-[11px] font-bold uppercase tracking-[0.12em] text-primary">
+                      <span className="block text-[11px] font-bold uppercase tracking-[0.12em] text-orange-700 dark:text-primary">
                         {notification.kind}
                       </span>
                       <span className="mt-0.5 block truncate text-sm font-semibold text-display">

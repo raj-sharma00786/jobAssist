@@ -88,7 +88,7 @@ export default function ProfilePage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-32">
-        <Loader2 className="w-6 h-6 text-[#fd9d27] animate-spin" />
+        <Loader2 className="w-6 h-6 text-orange-700 dark:text-primary animate-spin" />
       </div>
     );
   }
@@ -145,12 +145,12 @@ export default function ProfilePage() {
 
         {/* Error / Success */}
         {error && (
-          <div className="mb-5 p-4 rounded-xl bg-[#ef4444]/10 text-[#ef4444] text-sm font-medium">
+          <div className="mb-5 p-4 rounded-xl bg-error/10 text-red-700 dark:text-error text-sm font-medium">
             {error}
           </div>
         )}
         {saved && (
-          <div className="mb-5 p-4 rounded-xl bg-[#22c55e]/10 text-[#22c55e] text-sm font-medium flex items-center gap-2">
+          <div className="mb-5 p-4 rounded-xl bg-success/10 text-green-700 dark:text-success text-sm font-medium flex items-center gap-2">
             <CheckCircle2 className="w-4 h-4" />
             Profile updated successfully!
           </div>
@@ -160,7 +160,7 @@ export default function ProfilePage() {
           {/* Full Name */}
           <div className="space-y-1.5">
             <label className="text-[10px] font-bold text-body uppercase tracking-widest ml-1">
-              Full Name <span className="text-[#ef4444]">*</span>
+              Full Name <span className="text-red-700 dark:text-error">*</span>
             </label>
             <input
               type="text"

@@ -133,9 +133,6 @@ export default function Home() {
   }, [status, session]);
 
   const springConfig = { stiffness: 100, damping: 30, restDelta: 0.001 };
-  const parallaxY1 = useSpring(useTransform(scrollYProgress, [0, 1], [0, -250]), springConfig);
-  const parallaxY2 = useSpring(useTransform(scrollYProgress, [0, 1], [0, -80]), springConfig);
-  const parallaxY3 = useSpring(useTransform(scrollYProgress, [0, 1], [0, -350]), springConfig);
   const heroBlob1Y = useSpring(useTransform(scrollYProgress, [0, 1], [0, -150]), springConfig);
   const heroBlob2Y = useSpring(useTransform(scrollYProgress, [0, 1], [0, 80]), springConfig);
   const headlineY = useSpring(useTransform(scrollYProgress, [0, 0.4], [0, 80]), springConfig);
@@ -165,16 +162,16 @@ export default function Home() {
     {
       id: "interviews",
       icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />,
-      color: "text-[#16a34a]",
-      bg: "bg-[#16a34a]/10",
+      color: "text-green-700 dark:text-secondary",
+      bg: "bg-green-700/10 dark:bg-secondary/10",
       title: "Contest Tracker",
       desc: "A calendar-first tracker for Codeforces, CodeChef, and LeetCode contests so you can plan practice before each round."
     },
     {
       id: "mockinterviews",
       icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />,
-      color: "text-[#0ea5e9]",
-      bg: "bg-[#0ea5e9]/10",
+      color: "text-blue-700 dark:text-accent",
+      bg: "bg-blue-700/10 dark:bg-accent/10",
       title: "Mock Interviews",
       desc: "AI-powered HR and behavioral interview practice using the STAR method, with instant feedback and scoring."
     },
@@ -189,7 +186,12 @@ export default function Home() {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen bg-background text-foreground font-sans overflow-x-hidden selection:bg-primary/20 selection:text-primary">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="flex flex-col min-h-screen bg-background text-foreground font-sans overflow-x-hidden selection:bg-primary/20 selection:text-primary"
+    >
 
 
 
@@ -250,7 +252,7 @@ export default function Home() {
             style={{ willChange: "transform", y: heroBlob1Y }}
           />
           <motion.div
-            className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#c0fe71]/5 rounded-full blur-[100px] -z-10"
+            className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-secondary/5 rounded-full blur-[100px] -z-10"
             style={{ willChange: "transform", y: heroBlob2Y }}
           />
 
@@ -308,7 +310,9 @@ export default function Home() {
               {/* Card 1 - Problems Solved */}
               <motion.div
                 className="absolute top-2 left-4 md:left-8 w-48 h-56 rounded-2xl bg-surface-container border border-outline-variant p-5 text-display shadow-lg"
-                style={{ y: parallaxY1, willChange: "transform" }}
+                style={{ willChange: "transform" }}
+                animate={{ y: [0, -10, 0] }}
+                transition={{ repeat: Infinity, duration: 3, ease: "easeInOut", delay: 0 }}
               >
                 <div className="text-[10px] font-bold opacity-60 mb-2 tracking-widest uppercase">PROBLEMS SOLVED</div>
                 <div className="text-3xl font-black text-primary mb-1">247</div>
@@ -325,15 +329,17 @@ export default function Home() {
               {/* Card 2 - Solve Streak */}
               <motion.div
                 className="absolute top-10 right-2 md:right-4 w-52 h-48 rounded-2xl bg-surface-container-highest border border-outline-variant p-5 text-display shadow-lg"
-                style={{ y: parallaxY2, willChange: "transform" }}
+                style={{ willChange: "transform" }}
+                animate={{ y: [0, -8, 0] }}
+                transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut", delay: 0.4 }}
               >
                 <div className="text-[10px] font-bold opacity-60 mb-2 tracking-widest uppercase">SOLVE STREAK</div>
-                <div className="text-4xl font-black text-secondary mb-1">18</div>
+                <div className="text-4xl font-black text-green-700 dark:text-secondary mb-1">18</div>
                 <div className="text-xs opacity-50 mb-4">Days in a row!</div>
                 <div className="flex justify-between">
                   {["M", "T", "W", "T", "F", "S", "S"].map((d, i) => (
                     <div key={i} className="flex flex-col items-center gap-1.5">
-                      <div className={`w-5 h-5 rounded-full flex items-center justify-center text-[8px] font-bold ${i < 5 ? "bg-secondary text-on-secondary" : "bg-surface-container text-body"}`}>
+                      <div className={`w-5 h-5 rounded-full flex items-center justify-center text-[8px] font-bold ${i < 5 ? "bg-green-600 dark:bg-secondary text-white dark:text-on-secondary" : "bg-surface-container text-body"}`}>
                         {i < 5 ? "✓" : ""}
                       </div>
                       <span className="text-[8px] opacity-40">{d}</span>
@@ -345,13 +351,15 @@ export default function Home() {
               {/* Card 3 - Next Drive */}
               <motion.div
                 className="absolute bottom-4 left-1/2 -translate-x-1/2 w-56 h-44 rounded-2xl bg-surface-container border border-outline-variant p-5 text-display shadow-lg"
-                style={{ x: "-50%", y: parallaxY3, willChange: "transform" }}
+                style={{ x: "-50%", willChange: "transform" }}
+                animate={{ y: [0, -12, 0] }}
+                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", delay: 0.8 }}
               >
                 <div className="text-[10px] font-bold opacity-60 mb-2 tracking-widest uppercase">NEXT DRIVE</div>
-                <div className="text-3xl font-black text-[#0ea5e9] mb-1">3 days</div>
+                <div className="text-3xl font-black text-blue-700 dark:text-accent mb-1">3 days</div>
                 <div className="text-xs opacity-50 mb-4">Goldman Sachs</div>
                 <div className="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
-                  <div className="h-full bg-[#0ea5e9] rounded-full shadow-[0_0_8px_rgba(14,165,233,0.6)]" style={{ width: "85%" }} />
+                  <div className="h-full bg-accent rounded-full shadow-[0_0_8px_var(--color-accent)]" style={{ width: "85%" }} />
                 </div>
                 <div className="text-[10px] opacity-40 mt-2 font-bold">85% prep complete</div>
               </motion.div>
@@ -474,12 +482,12 @@ export default function Home() {
                   <div className="flex-1 bg-surface-container-low rounded-xl p-4 border border-outline-variant">
                     <div className="text-xs text-body mb-1 font-bold tracking-widest uppercase">Solved</div>
                     <div className="text-2xl font-black text-display">247</div>
-                    <div className="text-[10px] text-secondary mt-1 font-bold">▲ 12 this week</div>
+                    <div className="text-[10px] text-green-700 dark:text-secondary mt-1 font-bold">▲ 12 this week</div>
                   </div>
                   <div className="flex-1 bg-surface-container-low rounded-xl p-4 border border-outline-variant">
                     <div className="text-xs text-body mb-1 font-bold tracking-widest uppercase">Streak</div>
                     <div className="text-2xl font-black text-display">18d</div>
-                    <div className="text-[10px] text-secondary mt-1 font-bold">🔥 Personal best</div>
+                    <div className="text-[10px] text-green-700 dark:text-secondary mt-1 font-bold">🔥 Personal best</div>
                   </div>
                 </div>
                 {/* Topic Progress */}
@@ -503,13 +511,13 @@ export default function Home() {
                 {/* Recent Problems */}
                 <div className="space-y-2">
                   {[
-                    { name: "Two Sum", tag: "Easy", tagColor: "bg-[#16a34a]/10 text-[#16a34a]" },
-                    { name: "LRU Cache", tag: "Hard", tagColor: "bg-[#ef4444]/10 text-[#ef4444]" },
-                    { name: "Merge Intervals", tag: "Medium", tagColor: "bg-primary/10 text-primary" },
+                    { name: "Two Sum", tag: "Easy", tagColor: "bg-success/10 text-green-700 dark:text-success" },
+                    { name: "LRU Cache", tag: "Hard", tagColor: "bg-error/10 text-red-700 dark:text-error" },
+                    { name: "Merge Intervals", tag: "Medium", tagColor: "bg-primary/10 text-orange-700 dark:text-primary" },
                   ].map((task, i) => (
                     <div key={i} className="flex items-center gap-3 bg-surface-container-low rounded-xl p-3 border border-outline-variant">
-                      <div className="w-4 h-4 rounded border-2 border-secondary bg-secondary flex items-center justify-center flex-shrink-0">
-                        <svg className="w-2.5 h-2.5 text-on-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" d="M5 13l4 4L19 7" /></svg>
+                      <div className="w-4 h-4 rounded border-2 border-green-600 dark:border-secondary bg-green-600 dark:bg-secondary flex items-center justify-center flex-shrink-0">
+                        <svg className="w-2.5 h-2.5 text-white dark:text-on-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" d="M5 13l4 4L19 7" /></svg>
                       </div>
                       <span className="text-sm text-display font-bold flex-1">{task.name}</span>
                       <span className={`text-[10px] px-2 py-0.5 rounded font-bold ${task.tagColor}`}>
@@ -568,19 +576,19 @@ export default function Home() {
                 <div className="space-y-4">
                   <div className="bg-surface-container-highest rounded-xl p-4">
                     <div className="flex items-center gap-2 mb-2">
-                      <div className="w-6 h-6 rounded bg-[#16a34a]/10 flex items-center justify-center">
-                        <svg className="w-3.5 h-3.5 text-[#16a34a]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                      <div className="w-6 h-6 rounded bg-success/10 flex items-center justify-center">
+                        <svg className="w-3.5 h-3.5 text-green-700 dark:text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                       </div>
-                      <span className="text-xs font-bold text-[#16a34a]">Hot Topic: Dynamic Programming</span>
+                      <span className="text-xs font-bold text-green-700 dark:text-success">Hot Topic: Dynamic Programming</span>
                     </div>
                     <p className="text-xs text-body">Asked in 68% of Amazon SDE-1 interviews this quarter.</p>
                   </div>
                   <div className="bg-surface-container-highest rounded-xl p-4">
                     <div className="flex items-center gap-2 mb-2">
-                      <div className="w-6 h-6 rounded bg-[#ef4444]/10 flex items-center justify-center">
-                        <svg className="w-3.5 h-3.5 text-[#ef4444]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.34 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
+                      <div className="w-6 h-6 rounded bg-error/10 flex items-center justify-center">
+                        <svg className="w-3.5 h-3.5 text-red-700 dark:text-error" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.34 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
                       </div>
-                      <span className="text-xs font-bold text-[#ef4444]">Weak Area: Graph Algorithms</span>
+                      <span className="text-xs font-bold text-red-700 dark:text-error">Weak Area: Graph Algorithms</span>
                     </div>
                     <p className="text-xs text-body">Only 3 of 15 graph problems mastered. Focus here next.</p>
                   </div>
@@ -596,7 +604,7 @@ export default function Home() {
                 <div className="flex flex-wrap gap-3">
                   {["Problem Board", "Mock Scheduling", "Group Chat", "Shared Notes", "Leaderboard"].map((item, i) => (
                     <div key={i} className="inline-flex items-center gap-2 bg-surface-container-highest px-4 py-2.5 rounded-xl text-sm text-display font-bold">
-                      <div className="w-2 h-2 rounded-full" style={{ backgroundColor: ["var(--primary)", "var(--secondary)", "#0ea5e9", "#ef4444", "var(--accent)"][i] }} />
+                      <div className="w-2 h-2 rounded-full" style={{ backgroundColor: ["var(--primary)", "var(--secondary)", "var(--accent)", "var(--error)", "var(--accent)"][i] }} />
                       {item}
                     </div>
                   ))}
@@ -757,7 +765,7 @@ export default function Home() {
         </section>
 
         {/* ═══════════════════ FINAL CTA ═══════════════════ */}
-        <section className="w-full py-24 px-6 bg-surface-container-low relative overflow-hidden">
+        {/* <section className="w-full py-24 px-6 bg-surface-container-low relative overflow-hidden">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-primary/8 blur-[100px] rounded-full pointer-events-none" />
           <AnimatedSection className="max-w-3xl mx-auto text-center relative z-10">
             <h2 className="text-5xl md:text-6xl font-semibold tracking-tighter leading-tight mb-6 text-display">
@@ -771,7 +779,7 @@ export default function Home() {
               Get Started for Free →
             </Link>
           </AnimatedSection>
-        </section>
+        </section> */}
       </main>
 
       {/* ═══════════════════ FOOTER ═══════════════════ */}
@@ -784,10 +792,10 @@ export default function Home() {
             <span className="font-bold text-sm text-display">JobAssist</span>
           </div>
           <p className="text-xs text-body font-bold">
-            &copy; {new Date().getFullYear()} JobAssist. Built for Indian placement prep.
+            &copy; {new Date().getFullYear()} JobAssist
           </p>
         </div>
       </footer>
-    </div>
+    </motion.div>
   );
 }

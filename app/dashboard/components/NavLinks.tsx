@@ -14,10 +14,10 @@ import {
 const NAV_ITEMS = [
   { label: "Overview", href: "/dashboard", icon: LayoutGrid },
   { label: "Problem Bank", href: "/dashboard/problem-bank", icon: Layers },
-  { label: "Hackathons", href: "/dashboard/hackathons", icon: Trophy },
   { label: "Contests", href: "/dashboard/contests", icon: CalendarDays },
   { label: "Resume ATS", href: "/dashboard/resume-ats", icon: FileText },
   { label: "STAR Mock", href: "/dashboard/mock", icon: MessageSquare },
+  { label: "Hackathons", href: "/dashboard/hackathons", icon: Trophy },
 ];
 
 export default function NavLinks() {
@@ -47,7 +47,7 @@ export default function NavLinks() {
           >
             <Icon
               className={`w-4 h-4 ${
-                isActive ? "text-primary" : "text-body"
+                isActive ? "text-orange-700 dark:text-primary" : "text-body"
               }`}
             />
             <span className="hidden lg:inline">{item.label}</span>

@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useMemo, useState } from "react";
+import { FormEvent, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import {
   AlertCircle,
@@ -8,11 +8,14 @@ import {
   CheckCircle2,
   FileText,
   Loader2,
-  RefreshCw,
   Sparkles,
   Upload,
   XCircle,
 } from "lucide-react";
+
+/* ─────────────────────────────────────────────
+   Types
+   ───────────────────────────────────────────── */
 
 interface SectionScore {
   label: string;
@@ -28,7 +31,6 @@ interface ResumeSuggestion {
 }
 
 interface ResumeScan {
-  id: string;
   fileName: string;
   fileMimeType: string;
   fileSize: number;
@@ -39,27 +41,23 @@ interface ResumeScan {
   missingKeywords: string[];
   sectionScores: SectionScore[];
   suggestions: ResumeSuggestion[];
-  extractedTextPreview: string;
-  createdAt: string;
-  updatedAt: string;
-  fileUrl: string;
 }
 
 const statusStyles = {
   good: {
-    text: "text-success",
+    text: "text-green-700 dark:text-success",
     bg: "bg-success/10",
     border: "border-success/20",
     icon: CheckCircle2,
   },
   warning: {
-    text: "text-warning",
+    text: "text-amber-700 dark:text-warning",
     bg: "bg-warning/10",
     border: "border-warning/20",
     icon: AlertCircle,
   },
   error: {
-    text: "text-error",
+    text: "text-red-700 dark:text-error",
     bg: "bg-error/10",
     border: "border-error/20",
     icon: XCircle,
@@ -86,51 +84,18 @@ function getVerdictTone(score: number): "good" | "warning" | "error" {
   return "error";
 }
 
+/* ═════════════════════════════════════════════
+   Main Page
+   ═════════════════════════════════════════════ */
+
 export default function ResumeATSPage() {
   const [scan, setScan] = useState<ResumeScan | null>(null);
   const [targetRole, setTargetRole] = useState("Software Engineer Intern");
   const [jobDescription, setJobDescription] = useState("");
   const [file, setFile] = useState<File | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [pdfUrl, setPdfUrl] = useState<string | null>(null);
   const [isUploading, setIsUploading] = useState(false);
   const [error, setError] = useState("");
-
-  useEffect(() => {
-    let isMounted = true;
-
-    async function loadLatestScan() {
-      try {
-        const response = await fetch("/api/resume-ats");
-        const payload = await response.json();
-
-        if (!response.ok) {
-          throw new Error(payload.error || "Could not load resume scan.");
-        }
-
-        if (isMounted) {
-          setScan(payload.scan);
-
-          if (payload.scan?.targetRole) {
-            setTargetRole(payload.scan.targetRole);
-          }
-        }
-      } catch (err) {
-        if (isMounted) {
-          setError(err instanceof Error ? err.message : "Could not load resume scan.");
-        }
-      } finally {
-        if (isMounted) {
-          setIsLoading(false);
-        }
-      }
-    }
-
-    loadLatestScan();
-
-    return () => {
-      isMounted = false;
-    };
-  }, []);
 
   const scoreMeta = useMemo(() => {
     const score = scan?.score ?? 0;
@@ -144,6 +109,21 @@ export default function ResumeATSPage() {
       tone: getVerdictTone(score),
     };
   }, [scan?.score]);
+
+  /* Handle file selection — create a client-side object URL for preview */
+  function handleFileChange(selectedFile: File | null) {
+    // Revoke previous URL to avoid memory leaks
+    if (pdfUrl) {
+      URL.revokeObjectURL(pdfUrl);
+      setPdfUrl(null);
+    }
+
+    setFile(selectedFile);
+
+    if (selectedFile) {
+      setPdfUrl(URL.createObjectURL(selectedFile));
+    }
+  }
 
   async function handleUpload(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -173,7 +153,6 @@ export default function ResumeATSPage() {
       }
 
       setScan(payload.scan);
-      setFile(null);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to scan resume.");
     } finally {
@@ -181,24 +160,12 @@ export default function ResumeATSPage() {
     }
   }
 
-  if (isLoading) {
-    return (
-      <div className="space-y-6">
-        <Header targetRole={targetRole} />
-        <div className="grid grid-cols-1 gap-5 lg:grid-cols-12">
-          <div className="h-[620px] animate-pulse rounded-2xl border border-outline-variant bg-surface/60 lg:col-span-5" />
-          <div className="h-[620px] animate-pulse rounded-2xl border border-outline-variant bg-surface/60 lg:col-span-7" />
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="space-y-6">
-      <Header targetRole={targetRole} />
+      <Header />
 
       {error && (
-        <div className="flex items-start gap-3 rounded-xl border border-error/20 bg-error/10 p-4 text-sm text-error">
+        <div className="flex items-start gap-3 rounded-xl border border-error/20 bg-error/10 p-4 text-sm text-red-700 dark:text-error">
           <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" />
           <p>{error}</p>
         </div>
@@ -214,14 +181,12 @@ export default function ResumeATSPage() {
           <div className="mb-4 flex items-start justify-between gap-4">
             <div>
               <p className="text-sm font-semibold text-display">
-                {scan?.fileName || "Upload resume"}
+                {file ? file.name : "Upload resume"}
               </p>
               <p className="mt-1 text-xs text-body">
-                {scan
-                  ? `${formatFileSize(scan.fileSize)} • Last scanned ${new Date(
-                      scan.updatedAt
-                    ).toLocaleDateString()}`
-                  : "PDF only, up to 5MB"}
+                {file
+                  ? `${formatFileSize(file.size)} • Ready to scan`
+                  : "PDF only, up to 5 MB"}
               </p>
             </div>
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-surface-container-highest">
@@ -229,25 +194,25 @@ export default function ResumeATSPage() {
             </div>
           </div>
 
+          {/* PDF Preview */}
           <div className="h-[520px] overflow-hidden rounded-xl border border-outline-variant bg-background">
-            {scan ? (
+            {pdfUrl ? (
               <iframe
-                key={scan.updatedAt}
                 title="Resume preview"
-                src={`${scan.fileUrl}?v=${encodeURIComponent(scan.updatedAt)}`}
+                src={pdfUrl}
                 className="h-full w-full"
               />
             ) : (
               <div className="flex h-full flex-col items-center justify-center p-8 text-center">
                 <div className="mb-5 flex h-20 w-20 items-center justify-center rounded-2xl bg-primary/10">
-                  <Upload className="h-8 w-8 text-primary" />
+                  <Upload className="h-8 w-8 text-orange-700 dark:text-primary" />
                 </div>
                 <h2 className="text-xl font-bold text-display">
                   Start with your resume
                 </h2>
                 <p className="mt-2 max-w-sm text-sm leading-relaxed text-body">
-                  Upload a text-based PDF and JobAssist will save this as your
-                  latest scan, extract the content, and generate an ATS review.
+                  Upload a text-based PDF and get an AI-powered ATS review with
+                  score, keyword analysis, and actionable feedback.
                 </p>
               </div>
             )}
@@ -259,7 +224,7 @@ export default function ResumeATSPage() {
             jobDescription={jobDescription}
             isUploading={isUploading}
             hasScan={Boolean(scan)}
-            onFileChange={setFile}
+            onFileChange={handleFileChange}
             onTargetRoleChange={setTargetRole}
             onJobDescriptionChange={setJobDescription}
             onSubmit={handleUpload}
@@ -286,7 +251,11 @@ export default function ResumeATSPage() {
   );
 }
 
-function Header({ targetRole }: { targetRole: string }) {
+/* ─────────────────────────────────────────────
+   Sub-components
+   ───────────────────────────────────────────── */
+
+function Header() {
   return (
     <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
       <motion.div
@@ -298,10 +267,9 @@ function Header({ targetRole }: { targetRole: string }) {
           Resume ATS Scanner
         </h1>
         <p className="mt-1 text-base text-body">
-          Upload a PDF resume and get a saved ATS review with resume preview.
+          Upload a PDF resume and get an AI-powered ATS review instantly.
         </p>
       </motion.div>
-
     </div>
   );
 }
@@ -363,14 +331,14 @@ function UploadForm({
         />
         <div className="flex items-center gap-3">
           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10">
-            <Upload className="h-4 w-4 text-primary" />
+            <Upload className="h-4 w-4 text-orange-700 dark:text-primary" />
           </div>
           <div className="min-w-0">
             <p className="truncate text-sm font-semibold text-display">
-              {file ? file.name : hasScan ? "Upload a new PDF version" : "Choose PDF resume"}
+              {file ? file.name : "Choose PDF resume"}
             </p>
             <p className="mt-0.5 text-xs text-body">
-              {file ? formatFileSize(file.size) : "Stored privately as your latest scan"}
+              {file ? formatFileSize(file.size) : "PDF only, up to 5 MB"}
             </p>
           </div>
         </div>
@@ -378,18 +346,18 @@ function UploadForm({
 
       <button
         type="submit"
-        disabled={isUploading}
+        disabled={isUploading || !file}
         className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3 text-sm font-bold text-on-primary transition-all hover:shadow-[0_0_25px_-5px_var(--color-primary)] disabled:cursor-not-allowed disabled:opacity-60"
       >
         {isUploading ? (
           <>
             <Loader2 className="h-4 w-4 animate-spin" />
-            Scanning Resume
+            Analyzing with AI…
           </>
         ) : (
           <>
-            {hasScan ? <RefreshCw className="h-4 w-4" /> : <Upload className="h-4 w-4" />}
-            {hasScan ? "Replace Latest Scan" : "Scan Resume"}
+            <Sparkles className="h-4 w-4" />
+            {hasScan ? "Re-scan Resume" : "Scan Resume"}
           </>
         )}
       </button>
@@ -453,7 +421,7 @@ function ScoreCard({
             />
           </svg>
           <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-lg font-bold text-primary">{scan.score}%</span>
+            <span className="text-lg font-bold text-orange-700 dark:text-primary">{scan.score}%</span>
           </div>
         </div>
       </div>
@@ -463,7 +431,7 @@ function ScoreCard({
         <div>
           <p className="text-sm font-semibold">{scan.verdict}</p>
           <p className="mt-0.5 text-xs text-body">
-            Latest scan for {scan.targetRole}
+            Analyzed for {scan.targetRole}
           </p>
         </div>
       </div>
@@ -488,13 +456,13 @@ function KeywordsCard({ scan }: { scan: ResumeScan }) {
           scan.missingKeywords.map((keyword) => (
             <span
               key={keyword}
-              className="rounded-lg border border-error/20 bg-error/10 px-3.5 py-1.5 text-sm font-medium text-error"
+              className="rounded-lg border border-error/20 bg-error/10 px-3.5 py-1.5 text-sm font-medium text-red-700 dark:text-error"
             >
               + {keyword}
             </span>
           ))
         ) : (
-          <span className="rounded-lg border border-success/20 bg-success/10 px-3.5 py-1.5 text-sm font-medium text-success">
+          <span className="rounded-lg border border-success/20 bg-success/10 px-3.5 py-1.5 text-sm font-medium text-green-700 dark:text-success">
             No critical missing keywords
           </span>
         )}
@@ -509,7 +477,7 @@ function KeywordsCard({ scan }: { scan: ResumeScan }) {
             {scan.matchedKeywords.map((keyword) => (
               <span
                 key={keyword}
-                className="rounded-md border border-success/20 bg-success/10 px-2.5 py-1 text-xs font-medium text-success"
+                className="rounded-md border border-success/20 bg-success/10 px-2.5 py-1 text-xs font-medium text-green-700 dark:text-success"
               >
                 {keyword}
               </span>
@@ -569,8 +537,8 @@ function Suggestions({ suggestions }: { suggestions: ResumeSuggestion[] }) {
       className="rounded-2xl border border-outline-variant bg-surface/60 p-6"
     >
       <div className="mb-6 flex items-center gap-2">
-        <Sparkles className="h-4 w-4 text-accent" />
-        <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-accent">
+        <Sparkles className="h-4 w-4 text-blue-700 dark:text-accent" />
+        <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-blue-700 dark:text-accent">
           Improvement Suggestions
         </span>
       </div>
@@ -617,12 +585,13 @@ function EmptyReviewPanel() {
       className="flex min-h-[620px] flex-col items-center justify-center rounded-2xl border border-outline-variant bg-surface/60 p-8 text-center"
     >
       <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-accent/10">
-        <Sparkles className="h-7 w-7 text-accent" />
+        <Sparkles className="h-7 w-7 text-blue-700 dark:text-accent" />
       </div>
       <h2 className="text-2xl font-bold text-display">No scan yet</h2>
       <p className="mt-2 max-w-md text-sm leading-relaxed text-body">
         Upload your resume from the left panel. Once scanned, this area will show
-        the score, missing keywords, section breakdown, and improvement actions.
+        your AI-powered score, keyword analysis, section breakdown, and actionable
+        improvement suggestions.
       </p>
     </motion.div>
   );

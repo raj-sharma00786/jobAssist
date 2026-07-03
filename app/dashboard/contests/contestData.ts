@@ -18,18 +18,18 @@ export const PLATFORM_STYLES: Record<
   }
 > = {
   LeetCode: {
-    dot: "bg-[#facc15]",
+    dot: "bg-[#eab308]",
     pill:
-      "border-[#facc15]/80 bg-[#facc15]/15 text-[#fde68a] shadow-[0_0_14px_rgba(250,204,21,0.08)]",
+      "border-[#eab308]/40 bg-[#eab308]/10 text-yellow-900 dark:text-yellow-100 shadow-[0_0_14px_rgba(234,179,8,0.06)]",
   },
   Codeforces: {
-    dot: "bg-[#60a5fa]",
+    dot: "bg-[#3b82f6]",
     pill:
-      "border-[#60a5fa]/80 bg-[#1d4ed8]/20 text-[#bfdbfe] shadow-[0_0_14px_rgba(96,165,250,0.08)]",
+      "border-[#3b82f6]/40 bg-[#3b82f6]/10 text-blue-900 dark:text-blue-100 shadow-[0_0_14px_rgba(59,130,246,0.06)]",
   },
   CodeChef: {
-    dot: "bg-[#b45309]",
+    dot: "bg-[#ea580c]",
     pill:
-      "border-[#c2410c]/80 bg-[#7c2d12]/35 text-[#fed7aa] shadow-[0_0_14px_rgba(194,65,12,0.08)]",
+      "border-[#ea580c]/40 bg-[#ea580c]/10 text-orange-900 dark:text-orange-100 shadow-[0_0_14px_rgba(234,88,12,0.06)]",
   },
 };
