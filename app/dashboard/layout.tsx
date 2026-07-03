@@ -10,31 +10,28 @@ import NotificationMenu, {
 } from "./components/NotificationMenu";
 import UserAvatar from "./components/UserAvatar";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { getUpcomingContests } from "./contests/clist";
 
 async function getDashboardNotifications(): Promise<DashboardNotification[]> {
   try {
-    const [hackathons, archives] = await Promise.all([
-      prisma.hackathon.findMany({
-        orderBy: { createdAt: "desc" },
-        take: 3,
-        select: {
-          id: true,
-          title: true,
-          organizer: true,
-          deadline: true,
-        },
-      }),
-      prisma.interviewExperience.findMany({
-        orderBy: { createdAt: "desc" },
-        take: 3,
-        select: {
-          id: true,
-          company: true,
-          role: true,
-          date: true,
-        },
-      }),
-    ]);
+    const hackathons = await prisma.hackathon.findMany({
+      orderBy: { createdAt: "desc" },
+      take: 3,
+      select: {
+        id: true,
+        title: true,
+        organizer: true,
+        deadline: true,
+      },
+    });
+    const { contests } = await getUpcomingContests();
+    const upcomingContests = contests
+      .filter((contest) => new Date(contest.endsAt).getTime() >= Date.now())
+      .sort(
+        (a, b) =>
+          new Date(a.startsAt).getTime() - new Date(b.startsAt).getTime()
+      )
+      .slice(0, 2);
 
     return [
       ...hackathons.map((item) => ({
@@ -44,12 +41,18 @@ async function getDashboardNotifications(): Promise<DashboardNotification[]> {
         body: `${item.organizer} - ${item.deadline}`,
         href: "/dashboard/hackathons",
       })),
-      ...archives.map((item) => ({
-        id: `archive-${item.id}`,
-        kind: "Interview" as const,
-        title: `${item.company} ${item.role}`,
-        body: item.date,
-        href: "/dashboard/archives",
+      ...upcomingContests.map((item) => ({
+        id: `contest-${item.id}`,
+        kind: "Contest" as const,
+        title: item.name,
+        body: `${item.platform} - ${new Date(item.startsAt).toLocaleDateString(
+          "en-US",
+          {
+            month: "short",
+            day: "numeric",
+          }
+        )}`,
+        href: "/dashboard/contests",
       })),
     ].slice(0, 5);
   } catch {

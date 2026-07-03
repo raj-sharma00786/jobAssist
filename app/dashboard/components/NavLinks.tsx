@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import {
   LayoutGrid,
   Layers,
-  BookOpen,
+  CalendarDays,
   FileText,
   MessageSquare,
   Trophy,
@@ -15,7 +15,7 @@ const NAV_ITEMS = [
   { label: "Overview", href: "/dashboard", icon: LayoutGrid },
   { label: "Problem Bank", href: "/dashboard/problem-bank", icon: Layers },
   { label: "Hackathons", href: "/dashboard/hackathons", icon: Trophy },
-  { label: "Archives", href: "/dashboard/archives", icon: BookOpen },
+  { label: "Contests", href: "/dashboard/contests", icon: CalendarDays },
   { label: "Resume ATS", href: "/dashboard/resume-ats", icon: FileText },
   { label: "STAR Mock", href: "/dashboard/mock", icon: MessageSquare },
 ];

@@ -2,10 +2,6 @@
 
 @config "../tailwind.config.ts";
 
-/* ══════════════════════════════════════════
-   CODEPULSE — Design Token System
-   Primary = Pulse Orange (#fd9d27) for Dark, Blue for Light
-══════════════════════════════════════════ */
 :root {
   /* Light Theme (Default) */
   --surface:                    #f9f6f0;

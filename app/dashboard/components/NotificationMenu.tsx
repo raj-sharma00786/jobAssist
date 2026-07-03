@@ -2,11 +2,11 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { Bell, CalendarDays, MessageSquareText } from "lucide-react";
+import { Bell, CalendarDays, Trophy } from "lucide-react";
 
 export interface DashboardNotification {
   id: string;
-  kind: "Hackathon" | "Interview";
+  kind: "Hackathon" | "Contest";
   title: string;
   body: string;
   href: string;
@@ -67,7 +67,7 @@ export default function NotificationMenu({
           <div className="border-b border-outline-variant/70 px-4 py-3">
             <p className="text-sm font-bold text-display">Notifications</p>
             <p className="mt-0.5 text-xs text-body">
-              Hackathons and interview experience updates
+              Hackathons and contest updates
             </p>
           </div>
 
@@ -77,7 +77,7 @@ export default function NotificationMenu({
                 const Icon =
                   notification.kind === "Hackathon"
                     ? CalendarDays
-                    : MessageSquareText;
+                    : Trophy;
 
                 return (
                   <Link
@@ -110,8 +110,8 @@ export default function NotificationMenu({
                 No new updates
               </p>
               <p className="mt-1 text-xs leading-relaxed text-body">
-                New hackathons and interview archives will show here when they
-                are published.
+                New hackathons and programming contests will show here when
+                they are published.
               </p>
             </div>
           )}

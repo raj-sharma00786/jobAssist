@@ -5,7 +5,7 @@ import { useSession } from "next-auth/react";
 import { motion } from "framer-motion";
 import {
   Code2,
-  Building2,
+  CalendarDays,
   BarChart3,
   TrendingUp,
   FileSearch,
@@ -80,23 +80,23 @@ export default function DashboardOverview() {
           </div>
         </motion.div>
 
-        {/* Card 2: Next Drive */}
+        {/* Card 2: Next Contest */}
         <motion.div
           custom={1}
           variants={fadeUp}
           initial="hidden"
           animate="visible"
-          className="group relative bg-surface-container border border-outline-variant rounded-2xl p-6 hover:border-[#3b82f6]/30 transition-all duration-300"
+          className="group relative bg-surface-container border border-outline-variant rounded-2xl p-6 hover:border-[#facc15]/30 transition-all duration-300"
         >
-          <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#3b82f6]/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+          <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#facc15]/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
           <div className="relative z-10">
             <div className="flex items-center justify-between mb-5">
               <div className="flex items-center gap-2.5">
-                <div className="w-9 h-9 rounded-xl bg-blue-500/10 flex items-center justify-center">
-                  <Building2 className="w-4.5 h-4.5 text-blue-500" />
+                <div className="w-9 h-9 rounded-xl bg-[#facc15]/10 flex items-center justify-center">
+                  <CalendarDays className="w-4.5 h-4.5 text-[#facc15]" />
                 </div>
                 <span className="text-[10px] font-bold text-body uppercase tracking-[0.15em]">
-                  Next Drive
+                  Next Contest
                 </span>
               </div>
               <span className="text-[10px] font-bold text-[#ef4444] uppercase tracking-wider bg-[#ef4444]/10 px-2.5 py-1 rounded-lg">
@@ -104,14 +104,14 @@ export default function DashboardOverview() {
               </span>
             </div>
             <h3 className="text-xl font-bold text-display mb-1">
-              Goldman Sachs
+              Biweekly 186
             </h3>
-            <p className="text-sm text-body opacity-80">Closes in 3 Days</p>
+            <p className="text-sm text-body opacity-80">LeetCode - Jul 4</p>
             <Link
-              href="/dashboard/archives"
-              className="inline-flex items-center gap-1.5 mt-5 text-sm font-semibold text-[#3b82f6] hover:opacity-80 transition-colors group/link"
+              href="/dashboard/contests"
+              className="inline-flex items-center gap-1.5 mt-5 text-sm font-semibold text-[#facc15] hover:opacity-80 transition-colors group/link"
             >
-              View Details
+              View Calendar
               <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 transition-transform" />
             </Link>
           </div>
@@ -165,7 +165,7 @@ export default function DashboardOverview() {
 
       {/* ═══════════ BOTTOM ROW: 2 CARDS ═══════════ */}
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-4">
-        {/* Card 4: Trending Interview Experience (Wider) */}
+        {/* Card 4: Contest Tracker (Wider) */}
         <motion.div
           custom={3}
           variants={fadeUp}
@@ -182,18 +182,17 @@ export default function DashboardOverview() {
               </div>
             </div>
             <h3 className="text-xl font-bold text-display mb-3">
-              Trending Interview Experience
+              Contest Tracker
             </h3>
             <p className="text-sm text-body leading-relaxed max-w-[550px]">
-              Read how a student cleared the Arcesium technical round focusing
-              heavily on Graph Data Structures and Low-Level Design. Includes 3
-              exact questions asked.
+              Plan Codeforces, CodeChef, and LeetCode contests from one
+              calendar so your practice rhythm stays visible.
             </p>
             <Link
-              href="/dashboard/archives"
+              href="/dashboard/contests"
               className="inline-flex items-center gap-2 mt-6 px-5 py-2.5 rounded-full bg-primary text-on-primary text-sm font-bold hover:shadow-[0_0_25px_-5px_var(--color-primary)] active:scale-[0.97] transition-all"
             >
-              Read Full Experience
+              Open Contest Tracker
             </Link>
           </div>
         </motion.div>

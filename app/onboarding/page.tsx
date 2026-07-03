@@ -105,7 +105,7 @@ export default function OnboardingPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
               </svg>
             </div>
-            <span className="text-base font-semibold text-white tracking-tight">CodePulse</span>
+            <span className="text-base font-semibold text-white tracking-tight">jobAssist</span>
           </div>
 
           {/* Welcome banner */}
