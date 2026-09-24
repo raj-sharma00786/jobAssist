@@ -1,15 +1,18 @@
-import { PrismaClient } from "@prisma/client";
-import { PrismaTiDBCloud } from "@tidbcloud/prisma-adapter";
 import "dotenv/config";
+import { PrismaClient } from "@prisma/client";
+import { PrismaPg } from "@prisma/adapter-pg";
 import * as fs from "fs";
 import * as path from "path";
 
 // Initialize the TiDB adapter for the seed script
 const connectionString = process.env.DATABASE_URL!;
-const adapter = new PrismaTiDBCloud({ url: connectionString });
+
+const adapter = new PrismaPg({
+  connectionString,
+});
 
 // Pass the adapter here as well
-const prisma = new PrismaClient({ adapter });
+const prisma = new PrismaClient({adapter});
 
 async function main() {
   console.log("🌱 Seeding problems from problems.json...");

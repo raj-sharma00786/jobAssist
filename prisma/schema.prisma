@@ -6,7 +6,7 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "postgresql"
 }
 
 // ─────────────────────────────────────────────
@@ -134,8 +134,8 @@ model ResumeScan {
   fileName      String
   fileMimeType  String
   fileSize      Int
-  fileData      Bytes    @db.LongBlob
-  extractedText String   @db.LongText
+  fileData      Bytes    @db.ByteA
+  extractedText String   @db.Text
   targetRole    String   @default("Software Engineer Intern")
   score         Int
   verdict       String
